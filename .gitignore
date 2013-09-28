@@ -1,0 +1,9 @@
+.idea
+.vagrant
+*.swp
+pkg/
+.rvmrc
+metadata.json
+.redcar
+Gemfile.lock
+
