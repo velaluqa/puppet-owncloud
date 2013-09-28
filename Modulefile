@@ -1,0 +1,8 @@
+name    'velaluqa-owncloud'
+version '0.0.1'
+source  'https://github.com/velaluqa/puppet-owncloud'
+author  'Arthur Leonard Andersen'
+license 'GPLv3'
+summary 'Puppet ownCloud Module'
+description 'Module to install ownCloud using puppet.'
+project_page 'https://github.com/velaluqa/puppet-owncloud/'
