@@ -49,8 +49,8 @@ class owncloud::nginx (
 
   file { '/etc/nginx/conf.d/owncloud.conf':
     content => template('owncloud/nginx.conf.erb'),
-    owner => 'root',
-    group => 'root',
-    notify => Service['nginx']
+    owner   => 'root',
+    group   => 'root',
+    notify  => Service['nginx']
   }
 }
