@@ -4,6 +4,15 @@
 #
 # [path] The path were owncloud should be installed to (default: /srv/owncloud)
 # [user] The owncloud user (default: www-data)
+# [group] The owncloud group (default: www-data)
+# [db_type] The database's type
+# [db_name] The database's name
+# [db_user] The database's user
+# [db_pass] The database's password
+# [db_host] The database's host
+# [db_prefix] The database's table prefix
+# [admin_login] The admin's login name
+# [admin_pass] The admin's password
 #
 # === Examples
 #
@@ -25,8 +34,20 @@
 class owncloud (
   $path        = '/srv/owncloud',
   $user        = 'www-data',
-  $archive_url = 'https://download.owncloud.org/community/owncloud-8.2.2.tar.bz2',
+  $group       = 'www-data',
+
+  $db_type      = undef,
+  $db_name      = undef,
+  $db_user      = undef,
+  $db_pass      = undef,
+  $db_host      = undef,
+  $db_prefix    = '',
+
+  $admin_login  = undef,
+  $admin_pass   = undef,
 ) {
+
+  $archive_url = 'https://download.owncloud.org/community/owncloud-8.2.2.tar.bz2'
   $www_path = "${path}/www"
   $data_path = "${path}/data"
 
@@ -83,4 +104,14 @@ class owncloud (
     force   => true,
     require => Exec['owncloud-copy'],
   }
+
+  if $db_type {
+    file { "${www_path}/config/autoconfig.php":
+      ensure  => present,
+      owner   => $user,
+      group   => $group,
+      content => template('owncloud/autoconfig.php.erb')
+    }
+  }
+
 } # Class:: owncloud
