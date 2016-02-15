@@ -105,6 +105,14 @@ class owncloud (
     require => Exec['owncloud-copy'],
   }
 
+  file { "${www_path}/config/memcache.config.php":
+    ensure  => present,
+    owner   => $user,
+    group   => $group,
+    source  => 'puppet:///modules/owncloud/memcache.config.php',
+    require => Exec['owncloud-copy']
+  }
+
   if $db_type {
     file { "${www_path}/config/autoconfig.php":
       ensure  => present,
