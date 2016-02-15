@@ -18,6 +18,8 @@ server {
 
   access_log            <%= @ssl_access_log %>;
   error_log             <%= @ssl_error_log %>;
+
+  add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload";
 <%- end -%>
   root <%= @www_path %>;
 
