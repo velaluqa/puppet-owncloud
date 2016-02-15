@@ -30,9 +30,7 @@ class owncloud (
   $www_path = "${path}/www"
   $data_path = "${path}/data"
 
-  if !defined(Package['bzip2']) { package { 'bzip2': } }
-  if !defined(Package['memcached']) { package { 'memcached': } }
-  if !defined(Package['varnish']) { package { 'varnish': } }
+  ensure_packages(['bzip2', 'memcached', 'varnish'])
 
   exec { 'owncloud-purge-old':
     path    => '/bin:/usr/bin',
