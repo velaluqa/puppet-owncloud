@@ -110,7 +110,8 @@ class owncloud (
       ensure  => present,
       owner   => $user,
       group   => $group,
-      content => template('owncloud/autoconfig.php.erb')
+      content => template('owncloud/autoconfig.php.erb'),
+      require => Exec['owncloud-copy']
     }
   }
 
