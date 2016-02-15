@@ -51,7 +51,7 @@ class owncloud (
   $www_path = "${path}/www"
   $data_path = "${path}/data"
 
-  ensure_packages(['bzip2', 'memcached', 'varnish'])
+  ensure_packages(['bzip2', 'memcached'])
 
   exec { 'owncloud-purge-old':
     path    => '/bin:/usr/bin',
