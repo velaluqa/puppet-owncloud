@@ -25,7 +25,7 @@
 class owncloud (
   $path        = '/srv/owncloud',
   $user        = 'www-data',
-  $archive_url = 'http://download.owncloud.org/community/owncloud-6.0.3.tar.bz2',
+  $archive_url = 'https://download.owncloud.org/community/owncloud-8.2.2.tar.bz2',
 ) {
   $www_path = "${path}/www"
   $data_path = "${path}/data"
