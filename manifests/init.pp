@@ -114,12 +114,17 @@ class owncloud (
   }
 
   if $db_type {
-    file { "${www_path}/config/autoconfig.php":
-      ensure  => present,
-      owner   => $user,
-      group   => $group,
-      content => template('owncloud/autoconfig.php.erb'),
-      require => Exec['owncloud-copy']
+    exec {'owncloud-install':
+      command => "/usr/bin/php occ maintenance:install \
+                --database \"${db_type}\" --database-name \"${db_name}\" \
+                --database-user \"${db_user}\" --database-pass \"${db_pass}\" \
+                --database-host \"${db_host}\" --admin-user \"${admin_login}\" \
+                --admin-pass \"${admin_pass}\" --data-dir \"${data_path}\" \
+                --database-table-prefix \"${db_prefix}\"",
+      creates => "${www_path}/config/config.php",
+      cwd     => $www_path,
+      user    => $user,
+      require => File["${www_path}/config/memcache.config.php"],
     }
   }
 
