@@ -13,8 +13,8 @@ server {
   listen 443 ssl;
   server_name <%= @hostname %>;
 
-  ssl_certificate <%= @nginx_conf_dir %>/<%= @cert %>.crt;
-  ssl_certificate_key <%= @nginx_conf_dir %>/<%= @cert %>.key;
+  ssl_certificate <%= @ssl_cert %>;
+  ssl_certificate_key <%= @ssl_key %>;
 
   access_log            <%= @ssl_access_log %>;
   error_log             <%= @ssl_error_log %>;
