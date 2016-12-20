@@ -47,7 +47,7 @@ class owncloud (
   $admin_pass   = undef,
 ) {
 
-  $archive_url = 'https://download.owncloud.org/community/owncloud-9.1.1.tar.bz2'
+  $archive_url = 'https://download.owncloud.org/community/owncloud-9.1.2.tar.bz2'
   $www_path = "${path}/www"
   $data_path = "${path}/data"
 
