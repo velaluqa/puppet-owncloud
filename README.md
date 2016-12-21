@@ -1,3 +1,12 @@
+# UNMAINTAINED
+
+Since we stopped using puppet for our infrastructure, we are not going to 
+maintain this solution anymore.
+
+For further usage, check out the changes at:
+
+https://github.com/AndreaGiardini/puppet-owncloud-1
+
 # puppet-owncloud
 
 A puppet module to easily deploy owncloud. Make sure you have a
