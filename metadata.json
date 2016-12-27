@@ -8,5 +8,7 @@
   "project_page": "https://github.com/velaluqa/puppet-owncloud/",
   "issues_url": "https://github.com/velaluqa/puppet-owncloud/issues",
   "description": "Module to install ownCloud using puppet.",
-  "dependencies": []
+  "dependencies": [
+    {"name": "puppetlabs-stdlib"}
+  ]
 }
